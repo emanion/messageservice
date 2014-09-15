@@ -23,7 +23,8 @@ public class MessageServiceTestDrive
         //Get output
         OutputMessage deliveryOne = new MessageConsole();
         //plug both into driver
-        MessageService messageServiceOne = new MessageService(messageOne, deliveryOne);
+        MessageService messageServiceOne = 
+                                 new MessageService(messageOne, deliveryOne);
         // run operation on driver
         messageServiceOne.displayMessage();
 
@@ -37,7 +38,8 @@ public class MessageServiceTestDrive
         //already have output message from first test case....
         //OutputMessage deliveryOne = new MessageConsole();
         //plug both into driver
-        MessageService messageServiceTwo = new MessageService(messageTwo, deliveryOne);
+        MessageService messageServiceTwo = 
+                new MessageService(messageTwo, deliveryOne);
         // run operation on driver
         messageServiceTwo.displayMessage();
         
@@ -60,6 +62,28 @@ public class MessageServiceTestDrive
         //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
         //--->messageThree.setMessage("Here's the third statement!!!!");
 
+        
+        
+        
+        
+
+        
+        // FOURTH....  Use JOptionPane for output.....
+        // FOURTH....  Use JOptionPane for output.....
+        // FOURTH....  Use JOptionPane for output.....
+        
+        
+        //Get input
+        InputMessage messageFour = new HardCodedMessage();
+        //Get output
+        OutputMessage deliveryFour = new SwingMessage();
+        //plug both into driver
+        MessageService messageServiceFour =  
+                                 new MessageService(messageFour, deliveryFour);
+        // run operation on driver
+        messageServiceFour.displayMessage();
+
+        
 
     }
 }
