@@ -9,10 +9,15 @@ package messageservice;
  *
  * @author emanion
  */
-public interface InputMessage {
-
-    public abstract String getMessage();
+public class HardCodedMessageInput implements MessageInput {
     
+    
+    private String message = "Hello World, This is a hard coded message";
+            
+    public String getMessage()
+    {
+        return message;
+    }
     
     
 }

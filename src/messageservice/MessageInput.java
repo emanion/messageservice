@@ -9,11 +9,10 @@ package messageservice;
  *
  * @author emanion
  */
-public class MessageConsole implements OutputMessage {
+public interface MessageInput {
+
+    public abstract String getMessage();
     
-    public void sendMessage(String message)
-    {
-        System.out.println(message);
-    }
+    
     
 }

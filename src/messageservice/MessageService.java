@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package messageservice;
 
 /**
@@ -12,19 +11,42 @@ package messageservice;
  */
 public class MessageService {
 
-	private InputMessage inputMessage;
-	private OutputMessage outputMessage;
+    private MessageInput inputMessage;
+    private MessageOutput outputMessage;
+
     /**
      * @param args the command line arguments
      */
-    public MessageService(InputMessage getMessage, OutputMessage outputMessage)
-    {
-        this.inputMessage = getMessage;
+    public MessageService(MessageInput inputMessage, MessageOutput outputMessage) {
+        setInputMessage(inputMessage);
+        setOutputMessage(outputMessage);
+    }
+
+    public MessageInput getInputMessage() {
+        return inputMessage;
+    }
+
+    public void setInputMessage(MessageInput inputMessage) {
+        if (inputMessage == null)
+        {
+            inputMessage = new HardCodedMessageInput();
+        }
+        this.inputMessage = inputMessage;
+    }
+
+    public MessageOutput getOutputMessage() {
+        return outputMessage;
+    }
+
+    public void setOutputMessage(MessageOutput outputMessage) {
+        if (outputMessage == null)
+        {
+            outputMessage = new ConsoleMessageOutput();
+        }
         this.outputMessage = outputMessage;
     }
-    
-    public void displayMessage()
-    {
+
+    public void processMessage() {
         String message = inputMessage.getMessage();
         outputMessage.sendMessage(message);
     }

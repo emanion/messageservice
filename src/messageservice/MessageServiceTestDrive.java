@@ -19,14 +19,14 @@ public class MessageServiceTestDrive
         // FIRST....  run with input of hard coded message.....
         
         //Get input
-        InputMessage messageOne = new HardCodedMessage();
+        MessageInput messageOne = new HardCodedMessageInput();
         //Get output
-        OutputMessage deliveryOne = new MessageConsole();
+        MessageOutput deliveryOne = new ConsoleMessageOutput();
         //plug both into driver
         MessageService messageServiceOne = 
                                  new MessageService(messageOne, deliveryOne);
         // run operation on driver
-        messageServiceOne.displayMessage();
+        messageServiceOne.processMessage();
 
         
         // SECOND....  run with input of driver coded message.....
@@ -34,14 +34,14 @@ public class MessageServiceTestDrive
         // SECOND....  run with input of driver coded message.....
         
         //Get input
-        InputMessage messageTwo = new DriverMessage("the driver says HEY!!");
+        MessageInput messageTwo = new DriverMessageInput("the driver says HEY!!");
         //already have output message from first test case....
         //OutputMessage deliveryOne = new MessageConsole();
         //plug both into driver
         MessageService messageServiceTwo = 
                 new MessageService(messageTwo, deliveryOne);
         // run operation on driver
-        messageServiceTwo.displayMessage();
+        messageServiceTwo.processMessage();
         
         
         
@@ -51,37 +51,40 @@ public class MessageServiceTestDrive
         // THIRD....  TRY to (Wont work) use input setMessage method.....
         // THIRD....  TRY to (Wont work) use input setMessage method.....
         
+        
+        //The setMessaege method is not in the MessageInput Interface!!!!!!
         
         //Get input
-        InputMessage messageThriee = new DriverMessage("not much to say");
-        //now set the input message to something else
-        //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
-        //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
-        //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
-        //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
-        //The following line gets an error, becuase the method setMessage NOT in the INTERFACE!!!
-        //--->messageThree.setMessage("Here's the third statement!!!!");
-
-        
-        
-        
-        
-
-        
-        // FOURTH....  Use JOptionPane for output.....
-        // FOURTH....  Use JOptionPane for output.....
-        // FOURTH....  Use JOptionPane for output.....
-        
-        
-        //Get input
-        InputMessage messageFour = new HardCodedMessage();
+        MessageInput messageThree = new DriverMessageInput("not much to say");
+        //messageThree.setMessage("hello - this doesnt work!!!")
         //Get output
-        OutputMessage deliveryFour = new SwingMessage();
+        MessageOutput deliveryThree = new SwingMessageOutput();
+        //plug both into driver
+        MessageService messageServiceThree =  
+                                 new MessageService(messageThree, deliveryThree);
+        // run operation on driver
+        messageServiceThree.processMessage();
+
+        
+        
+        
+        
+
+        
+        // FOURTH....  Use JOptionPane for output.....
+        // FOURTH....  Use JOptionPane for output.....
+        // FOURTH....  Use JOptionPane for output.....
+        
+        
+        //Get input
+        MessageInput messageFour = new HardCodedMessageInput();
+        //Get output
+        MessageOutput deliveryFour = new SwingMessageOutput();
         //plug both into driver
         MessageService messageServiceFour =  
                                  new MessageService(messageFour, deliveryFour);
         // run operation on driver
-        messageServiceFour.displayMessage();
+        messageServiceFour.processMessage();
 
         
 

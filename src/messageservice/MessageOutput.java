@@ -9,7 +9,7 @@ package messageservice;
  *
  * @author emanion
  */
-public interface OutputMessage {
+public interface MessageOutput {
     
     public abstract void sendMessage(String message);
     
